@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>青青烘焙坊</title>
+        <link rel="icon" href="./img/icon.ico" type="image/x-icon" >
+        <link rel="stylesheet" type="text/css" href="./css/about.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/header.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+        <script src="js/firebase.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+        <button type="button" id="BackTop" style="display:scroll;position:fixed;bottom:10px;right:10px; z-index: 10;" href="#" title=""><i class="fas fa-arrow-up fa-3x"></i></button> 
+        <div id="popup">
+          <span class="cross">X</span>
+          <form action="logcheck.php" method="post" class="container">
+            <input type="text" name="account" value="" placeholder="輸入帳號" class="input" id="account">
+            <input type="password" name="password" value="" placeholder="輸入密碼" class="input" id="pwd">
+            <div class="container" style="margin-bottom: 18px;">
+              <div class="row">
+                <div class="col-6 mr-auto">
+                  <input type="button" name="" value="登入" onclick="login()">
+                </div>
+                <div class="col-6">
+                  <input type="button" name="" value="註冊" onclick="user()">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <header >
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color:rgba(0,0,0);">
+                <a class="navbar-brand" href="./index.html"><img src="./img/title.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: #F7F7F7;">
+                        <span class="navbar-toggler-icon" style="color:#F7F7F7;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav navbar-flex" style="width: 100%;">
+                        <li class="nav-item"><a class="nav-link" href="./index.html" style="color:#F7F7F7">首頁</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./about.html" style="color:#F7F7F7">關於我們</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./items.html" style="color:#F7F7F7">門市商品</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./info.html" style="color:#F7F7F7">門市據點</a></li>
+                        <li class="nav-item"><a class="nav-link" id="login" style="color:#F7F7F7">登入</a></il>
+                        </ul>
+                        <a href="./trolley.html"><i class="fas fa-shopping-cart fa-3x social"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-square fa-3x social"></i></a>
+                        <a href="https://www.instagram.com/?hl=zh-tw"><i class="fab fa-instagram fa-3x"></i></a>
+                    </div>
+            </nav>
+            </div>
+        </header>
+    </head>
+<body>
+    <div class=main_view>
+        <img src="img/001-min.jpg" class=main_view_img>
+        <div class=main_view_context>
+            <p class=main_view_context_title>關於青青</p>
+            <div class=main_view_context_line></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text_tile">品牌故事</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="about_text_content">
+                <img src="./img/about/創辦人.jpg" class="about_describe_img ">
+                <p>
+                    創辦人─夏先生，是一個樸實的瑞芳子弟，家族中所有的成員都是以務農為生，從小生活的辛苦自然是不在話下，在一天辛苦的農務之後，能夠享受到一個又白又大的饅頭，是一天中最幸福的時候。
+                    <br>
+                </p>
+
+                <p>
+                    在收成時，家鄉附近總是會有著一片片的金黃色麥田，而伴隨麥田映入眼中的是油綠綠的青青大草原，這也是青青烘焙坊名字的由來，讓他下定決心投入這行是父親從城市裡，
+                    帶回了一大堆好吃的糕點和麵包，這一些生活在城市中的人，每日垂首可得的生活必需品，卻是他從未享受過的美食，他深深的感到擁有一技之長的重要，
+                    也對寬闊的世界產生了極大的好奇心，在一個機緣下，接觸了那時還很傳統的烘焙業，去學習他最喜歡的美食─烘焙品的製作。　
+                </p>
+                <p>
+                    從他踏入烘焙業之前，就常想也許做個小生意就有機會改善家庭的生活，在麵包店作學徒的時候，更立下心願，想要有一家自己的烘焙店，
+                    因此，努力學好技術成了達成目標唯一的方法，他比任何同事都努力，那時的學徒環境相當傳統，為了學得老師父的手藝，除了每天一早三、四點起床烤早麵包之外，
+                    還得兼做師傅家中的幫傭，但這一切都是為了一個更遠的、更大的目標。
+                </p>
+                <p>
+                    十幾年前，為了精進自己得烘焙技術，讓夏先生得到前往國立台北教育大學學習技藝的機會，當時烘焙業中擁有這般技術的人可說是少之又少，幾年之內，他成為業界首屈一指的西點與麵包師傅。
+                    也許，是對夢想實現的渴望，他投入了所有的積蓄，成立了青青烘焙坊，自許立志成為烘焙業中的第一，將近十個年頭過去，行事作風低調的青青烘焙坊，
+                    也許在消費市場中的知名度還不高，但是在同業中早已極富盛名，而青青烘焙坊所到之處，亦獲得當地消費者極大的支持與愛護，無論是業績還是新產品開發，一再創造烘焙業中的新紀錄。
+                    麵包唯一不可缺少的原物料，就是「感情」。所以夏先生不是在販賣麵包，而是在販賣幸福感情！夏先生深信，如果品嚐到一個好吃的麵包、一個溫馨的蛋糕，
+                    那會是一件快樂的事！除了滿足了您挑剔的嘴，更是溫暖你的心。讓我們創造更多人的幸福。
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class=col-12>
+                <h2 class="text-center text_tile">得獎紀錄</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <p class="Award">
+                    ．國立台北教育大學西點大賽第一名
+                    <br>
+                    ．臭狗西點大賽優勝
+                    <br>
+                    ．程式設計物件導向第一名
+                    <br>
+                    ．班級成績卓越獎
+                    <br>
+                    ．網頁設計比賽第一名
+                    <br>
+                    ．全國學生大會評定最佳同學獎
+                </p>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img src="./img/about/得獎照片.jpg" class="winning_img">
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+<footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="img/about/footer.png" alt="" class="w-100 h-100 footer-img">
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/Animation.js"></script>
+</html>

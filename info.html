@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>青青烘焙坊</title>
+        <link rel="icon" href="./img/icon.ico" type="image/x-icon" >
+        <link rel="stylesheet" type="text/css" href="./css/info.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/header.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+        <script src="js/firebase.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+        <button type="button" id="BackTop" style="display:scroll;position:fixed;bottom:10px;right:10px; z-index: 10;" href="#" title=""><i class="fas fa-arrow-up fa-3x"></i></button> 
+        <div id="popup">
+          <span class="cross">X</span>
+          <form action="logcheck.php" method="post" class="container">
+            <input type="text" name="account" value="" placeholder="輸入帳號" class="input" id="account">
+            <input type="password" name="password" value="" placeholder="輸入密碼" class="input" id="pwd">
+            <div class="container" style="margin-bottom: 18px;">
+              <div class="row">
+                <div class="col-6 mr-auto">
+                  <input type="button" name="" value="登入" onclick="login()">
+                </div>
+                <div class="col-6">
+                  <input type="button" name="" value="註冊" onclick="user()">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <header >
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color:rgba(0,0,0);">
+                <a class="navbar-brand" href="./index.html"><img src="./img/title.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: #F7F7F7;">
+                        <span class="navbar-toggler-icon" style="color:#F7F7F7;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav navbar-flex" style="width: 100%;">
+                        <li class="nav-item"><a class="nav-link" href="./index.html" style="color:#F7F7F7">首頁</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./about.html" style="color:#F7F7F7">關於我們</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./items.html" style="color:#F7F7F7">門市商品</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./info.html" style="color:#F7F7F7">門市據點</a></li>
+                        <li class="nav-item"><a class="nav-link" id="login" style="color:#F7F7F7">登入</a></il>
+                        </ul>
+                        <a href="./trolley.html"><i class="fas fa-shopping-cart fa-3x social"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-square fa-3x social"></i></a>
+                        <a href="https://www.instagram.com/?hl=zh-tw"><i class="fab fa-instagram fa-3x"></i></a>
+                    </div>
+            </nav>
+            </div>
+        </header>
+    </head>
+    <body>
+        <div class=main_view>
+            <img src="img/001-min.jpg" class=main_view_img>
+            <div class=main_view_context>
+                <p class=main_view_context_title>門市據點</p>
+                <div class=main_view_context_line></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="disable">
+                        <div class="card" style="border:0px">
+                            <div class=main_body_cate>
+                                <p class=main_body_cate_title>門市據點</p>
+                                <div class=main_body_cate_line></div>
+                                <a class=main_body_cate_sub>台北市</a>
+                                <a class=main_body_cate_sub>新北市</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-9">
+                    <div class="container">
+                        <div class="row">
+                        <iframe class=main_body_store_info_map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14459.21557629706!2d121.54841739999999!3d25.0407284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d255598df%3A0x47ea748e8f3f53aa!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1587820445774!5m2!1szh-TW!2stw" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <p class=main_body_store_info_adress_info>青青烘焙坊</br>星期日-星期四</br>7:00 a.m.-9:00 p.m.</br>0987654321<br>北科大</p>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                        <iframe class=main_body_store_info_map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14459.21557629706!2d121.54841739999999!3d25.0407284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d255598df%3A0x47ea748e8f3f53aa!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1587820445774!5m2!1szh-TW!2stw" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <p class=main_body_store_info_adress_info>青青烘焙坊</br>星期日-星期四</br>7:00 a.m.-9:00 p.m.</br>0912345678<br>忠孝新生</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class=main_body>
+            <div class=main_body_cate>
+                <p class=main_body_cate_title>門市據點</p>
+                <div class=main_body_cate_line></div>
+                <a class=main_body_cate_sub>台北市</a>
+                <a class=main_body_cate_sub>新北市</a>
+            </div>
+            <div class=main_body_line></div>
+            <div class=main_body_store>
+                <div class=main_body_store_info>
+                    <iframe class=main_body_store_info_map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14459.21557629706!2d121.54841739999999!3d25.0407284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d255598df%3A0x47ea748e8f3f53aa!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1587820445774!5m2!1szh-TW!2stw" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <div class=main_body_store_info_adress>
+                        <p class=main_body_store_info_adress_info>青青烘焙坊</br>星期日-星期四</br>7:00 a.m.-9:00 p.m.</br>0987654321</p>
+                        <a class=main_body_store_info_adress_text href="https://goo.gl/maps/63Ldk6e8abGVUnNz7">北科大</a>
+                    </div>
+                </div>
+                <div class=main_body_store_line></div>
+                <div class=main_body_store_info>
+                    <iframe class=main_body_store_info_map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14459.21557629706!2d121.54841739999999!3d25.0407284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d255598df%3A0x47ea748e8f3f53aa!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1587820445774!5m2!1szh-TW!2stw" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <div class=main_body_store_info_adress>
+                        <p class=main_body_store_info_adress_info>青青烘焙坊</br>星期日-星期四</br>7:00 a.m.-9:00 p.m.</br>0987654321</p>
+                        <a class=main_body_store_info_adress_text href="https://goo.gl/maps/63Ldk6e8abGVUnNz7">北科大</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </body>
+    <footer>
+        
+    </footer>
+    <script src="js/jQuery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Animation.js"></script>
+
+</html>
